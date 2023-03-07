@@ -10,6 +10,14 @@ services:
     volumes:
       - .:/usr/src/app
     restart: unless-stopped
+    depends_on:
+      - redis
+    networks:
+      - ror7inspect-network
+
+  redis:
+    image: redis:7.0.9-alpine
+    container_name: ror7inspect-redis
     networks:
       - ror7inspect-network
 
