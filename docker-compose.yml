@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  ror7:
+    build: .
+    container_name: ror7inspect
+    command: rails server -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    restart: unless-stopped
+    networks:
+      - ror7inspect-network
+
+networks:
+  ror7inspect-network:
+    driver: bridge # defaulted
