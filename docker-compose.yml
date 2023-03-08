@@ -20,9 +20,12 @@ services:
       - ror7inspect-network
 
   redis:
-    image: redis:7.0.9-alpine
+    image: redis:7.0.9
+    command: redis-server
     container_name: ror7inspect-redis
     restart: unless-stopped
+    volumes:
+      - redis_data:/data
     networks:
       - ror7inspect-network
 
@@ -39,6 +42,7 @@ services:
 
 volumes:
   db_data:
+  redis_data:
 
 networks:
   ror7inspect-network:
