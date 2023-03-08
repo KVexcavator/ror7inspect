@@ -1,6 +1,9 @@
 git add .
 git commit --amend --no-edit
 =======================
+Generate a Gemfile.lock:
+docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:3.2 bundle install
+=======================
 version: "3.9"
 services:
   frontend:

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_by(username: params[:session][:user_id])
+    user = User.find_by(username: params[:session][:username])
     if user
       log_in(user)
     else
@@ -13,4 +13,5 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_path
   end
+
 end
