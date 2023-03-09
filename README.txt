@@ -15,3 +15,5 @@ $ docker compose exec ror7 bin/rails g model User username
 $ docker compose exec ror7 bin/rails importmap:install
 $ docker compose exec ror7 bin/rails turbo:install
 $ docker compose exec ror7 bin/rails turbo:install:redis
+
+docker compose exec ror7 bin/rails g model Message user:references room:references content:text
